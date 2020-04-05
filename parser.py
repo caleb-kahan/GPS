@@ -78,6 +78,7 @@ def parse_file( fname, csystems, screen, color ):
 
         if line == 'sphere':
             #print 'SPHERE\t' + str(args)
+            polygons = []
             add_sphere(polygons,
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step_3d)
@@ -152,8 +153,6 @@ def parse_file( fname, csystems, screen, color ):
 
         elif line == 'display' or line == 'save':
             clear_screen(screen)
-            draw_lines(edges, screen, color)
-            draw_polygons(polygons, screen, color)
 
             if line == 'display':
                 display(screen)
