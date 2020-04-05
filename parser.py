@@ -141,6 +141,12 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             matrix_mult(csystems[-1], t)
             csystems[-1] = t
 
+        elif line == 'push':
+            csystems.append(csystems[-1])
+            #Shouldn't matter, becuase when you apply a transformation
+            #to the top of the matrix, the 2nd to the top is not affected becuase
+            #new reference is assigned
+
         elif line == 'pop':
             csystems.pop()
 
