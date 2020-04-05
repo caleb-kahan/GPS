@@ -1,7 +1,7 @@
 from display import *
 from matrix import *
 from draw import *
-
+import copy
 """
 Goes through the file named filename and performs all of the actions listed in that file.
 The file follows the following format:
@@ -57,13 +57,12 @@ The file follows the following format:
 
 See the file script for an example of the file format
 """
-ARG_COMMANDS = [ 'box', 'sphere', 'torus', 'circle', 'bezier', 'hermite', 'line', 'scale', 'move', 'rotate', 'save','push', 'pop' ]
+ARG_COMMANDS = [ 'box', 'sphere', 'torus', 'circle', 'bezier', 'hermite', 'line', 'scale', 'move', 'rotate', 'save']
 
 def parse_file( fname, csystems, screen, color ):
 
     f = open(fname)
     lines = f.readlines()
-
     step = 100
     step_3d = 20
 
@@ -175,10 +174,9 @@ def parse_file( fname, csystems, screen, color ):
             csystems.pop()
 
         elif line == 'display' or line == 'save':
-            clear_screen(screen)
-
             if line == 'display':
                 display(screen)
             else:
                 save_extension(screen, args[0])
+            clear_screen(screen)
         c+= 1
