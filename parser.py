@@ -85,24 +85,28 @@ def parse_file( fname, csystems, screen, color ):
 
         elif line == 'torus':
             #print 'TORUS\t' + str(args)
+            polygons = []
             add_torus(polygons,
                       float(args[0]), float(args[1]), float(args[2]),
                       float(args[3]), float(args[4]), step_3d)
 
         elif line == 'box':
             #print 'BOX\t' + str(args)
+            polygons = []
             add_box(polygons,
                     float(args[0]), float(args[1]), float(args[2]),
                     float(args[3]), float(args[4]), float(args[5]))
 
         elif line == 'circle':
             #print 'CIRCLE\t' + str(args)
+            edges = []
             add_circle(edges,
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step)
 
         elif line == 'hermite' or line == 'bezier':
             #print 'curve\t' + line + ": " + str(args)
+            edges = []
             add_curve(edges,
                       float(args[0]), float(args[1]),
                       float(args[2]), float(args[3]),
@@ -112,7 +116,7 @@ def parse_file( fname, csystems, screen, color ):
 
         elif line == 'line':
             #print 'LINE\t' + str(args)
-
+            edges = []
             add_edge( edges,
                       float(args[0]), float(args[1]), float(args[2]),
                       float(args[3]), float(args[4]), float(args[5]) )
