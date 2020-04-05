@@ -57,7 +57,7 @@ The file follows the following format:
 
 See the file script for an example of the file format
 """
-ARG_COMMANDS = [ 'box', 'sphere', 'torus', 'circle', 'bezier', 'hermite', 'line', 'scale', 'move', 'rotate', 'save' ]
+ARG_COMMANDS = [ 'box', 'sphere', 'torus', 'circle', 'bezier', 'hermite', 'line', 'scale', 'move', 'rotate', 'save', 'pop' ]
 
 def parse_file( fname, edges, polygons, csystems, screen, color ):
 
@@ -140,6 +140,9 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
                 t = make_rotZ(theta)
             matrix_mult(csystems[-1], t)
             csystems[-1] = t
+
+        elif line == 'pop':
+            csystems.pop()
 
         elif line == 'display' or line == 'save':
             clear_screen(screen)
