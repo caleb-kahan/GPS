@@ -84,6 +84,7 @@ def parse_file( fname, csystems, screen, color ):
                        float(args[3]), step_3d)
             matrix_mult(csystems[-1],polygons)
             draw_polygons(polygons,screen,color)
+            polygons = []
 
         elif line == 'torus':
             #print 'TORUS\t' + str(args)
@@ -93,6 +94,7 @@ def parse_file( fname, csystems, screen, color ):
                       float(args[3]), float(args[4]), step_3d)
             matrix_mult(csystems[-1],polygons)
             draw_polygons(polygons,screen,color)
+            polygons = []
 
         elif line == 'box':
             #print 'BOX\t' + str(args)
@@ -102,6 +104,7 @@ def parse_file( fname, csystems, screen, color ):
                     float(args[3]), float(args[4]), float(args[5]))
             matrix_mult(csystems[-1],polygons)
             draw_polygons(polygons,screen,color)
+            polygons = []
 
         elif line == 'circle':
             #print 'CIRCLE\t' + str(args)
@@ -110,7 +113,8 @@ def parse_file( fname, csystems, screen, color ):
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step)
             matrix_mult(csystems[-1],edges)
-            draw_polygons(edges,screen,color)
+            draw_lines(edges,screen,color)
+
 
         elif line == 'hermite' or line == 'bezier':
             #print 'curve\t' + line + ": " + str(args)
@@ -122,7 +126,7 @@ def parse_file( fname, csystems, screen, color ):
                       float(args[6]), float(args[7]),
                       step, line)
             matrix_mult(csystems[-1],edges)
-            draw_polygons(edges,screen,color)
+            draw_lines(edges,screen,color)
 
         elif line == 'line':
             #print 'LINE\t' + str(args)
@@ -131,7 +135,7 @@ def parse_file( fname, csystems, screen, color ):
                       float(args[0]), float(args[1]), float(args[2]),
                       float(args[3]), float(args[4]), float(args[5]) )
             matrix_mult(csystems[-1],edges)
-            draw_polygons(edges,screen,color)
+            draw_lines(edges,screen,color)
 
         elif line == 'scale':
             #print 'SCALE\t' + str(args)
