@@ -114,6 +114,7 @@ def parse_file( fname, csystems, screen, color ):
                        float(args[3]), step)
             matrix_mult(csystems[-1],edges)
             draw_lines(edges,screen,color)
+            edges = []
 
 
         elif line == 'hermite' or line == 'bezier':
@@ -127,6 +128,7 @@ def parse_file( fname, csystems, screen, color ):
                       step, line)
             matrix_mult(csystems[-1],edges)
             draw_lines(edges,screen,color)
+            edges = []
 
         elif line == 'line':
             #print 'LINE\t' + str(args)
@@ -136,6 +138,7 @@ def parse_file( fname, csystems, screen, color ):
                       float(args[3]), float(args[4]), float(args[5]) )
             matrix_mult(csystems[-1],edges)
             draw_lines(edges,screen,color)
+            edges = []
 
         elif line == 'scale':
             #print 'SCALE\t' + str(args)
