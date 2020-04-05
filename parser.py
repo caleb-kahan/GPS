@@ -57,9 +57,9 @@ The file follows the following format:
 
 See the file script for an example of the file format
 """
-ARG_COMMANDS = [ 'box', 'sphere', 'torus', 'circle', 'bezier', 'hermite', 'line', 'scale', 'move', 'rotate', 'save', 'pop' ]
+ARG_COMMANDS = [ 'box', 'sphere', 'torus', 'circle', 'bezier', 'hermite', 'line', 'scale', 'move', 'rotate', 'save','push', 'pop' ]
 
-def parse_file( fname, edges, polygons, csystems, screen, color ):
+def parse_file( fname, csystems, screen, color ):
 
     f = open(fname)
     lines = f.readlines()
