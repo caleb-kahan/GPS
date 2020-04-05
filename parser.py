@@ -82,6 +82,7 @@ def parse_file( fname, csystems, screen, color ):
             add_sphere(polygons,
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step_3d)
+            matrix_mult(csystems[-1],polygons)
 
         elif line == 'torus':
             #print 'TORUS\t' + str(args)
@@ -89,6 +90,7 @@ def parse_file( fname, csystems, screen, color ):
             add_torus(polygons,
                       float(args[0]), float(args[1]), float(args[2]),
                       float(args[3]), float(args[4]), step_3d)
+            matrix_mult(csystems[-1],polygons)
 
         elif line == 'box':
             #print 'BOX\t' + str(args)
@@ -96,6 +98,7 @@ def parse_file( fname, csystems, screen, color ):
             add_box(polygons,
                     float(args[0]), float(args[1]), float(args[2]),
                     float(args[3]), float(args[4]), float(args[5]))
+            matrix_mult(csystems[-1],polygons)
 
         elif line == 'circle':
             #print 'CIRCLE\t' + str(args)
@@ -103,6 +106,7 @@ def parse_file( fname, csystems, screen, color ):
             add_circle(edges,
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step)
+            matrix_mult(csystems[-1],edges)
 
         elif line == 'hermite' or line == 'bezier':
             #print 'curve\t' + line + ": " + str(args)
@@ -113,6 +117,7 @@ def parse_file( fname, csystems, screen, color ):
                       float(args[4]), float(args[5]),
                       float(args[6]), float(args[7]),
                       step, line)
+            matrix_mult(csystems[-1],edges)
 
         elif line == 'line':
             #print 'LINE\t' + str(args)
@@ -120,6 +125,7 @@ def parse_file( fname, csystems, screen, color ):
             add_edge( edges,
                       float(args[0]), float(args[1]), float(args[2]),
                       float(args[3]), float(args[4]), float(args[5]) )
+            matrix_mult(csystems[-1],edges)
 
         elif line == 'scale':
             #print 'SCALE\t' + str(args)
