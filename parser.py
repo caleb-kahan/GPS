@@ -70,7 +70,6 @@ def parse_file( fname, csystems, screen, color ):
     while c < len(lines):
         line = lines[c].strip()
         #print ':' + line + ':'
-
         if line in ARG_COMMANDS:
             c+= 1
             args = lines[c].strip().split(' ')
@@ -152,7 +151,7 @@ def parse_file( fname, csystems, screen, color ):
             csystems[-1] = t
 
         elif line == 'rotate':
-            #print 'ROTATE\t' + str(args)
+            #print ('ROTATE\t' + str(args))
             theta = float(args[1]) * (math.pi / 180)
 
             if args[0] == 'x':
